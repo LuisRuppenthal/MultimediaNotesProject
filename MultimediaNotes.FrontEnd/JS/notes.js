@@ -351,6 +351,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // Realizar LOGOUT (registrado antes de carregar as notas, para funcionar mesmo sem anotações)
+  document.getElementById("logoutButton").addEventListener("click", logout);
+
   const user = authService.getUser();
   const notesContainer = document.getElementById("notesContainer");
 
@@ -481,7 +484,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Erro ao carregar anotações:", error);
     notesContainer.innerHTML = `<p>Erro ao carregar anotações. <button onclick="location.reload()">Tentar novamente</button></p>`;
   }
-  
-  //Realizar LOGOUT
-  document.getElementById("logoutButton").addEventListener("click", logout);
 });
